@@ -19,3 +19,5 @@
 - [x] Provide distinct dashboard views for run, report, and comparison workflows.
 - [x] Expand setup documentation with web development commands and concrete FastAPI request examples.
 - [x] Add explicit configuration, report, and comparison query error states to the live dashboard views.
+- [x] Make Run a suite, Reports, and Compare render useful dedicated preview-mode content when no FastAPI endpoint is configured.
+- [x] Verify sidebar navigation opens each dedicated workspace view without a blank or sparse intermediate state.

@@ -56,6 +56,14 @@ curl http://localhost:8000/reports
 
 The resulting report contains aggregate status, per-test thresholds, observed metrics, evidence, optional baseline context, and a `share_token` available from `GET /reports/share/{share_token}`. To compare two saved reports, request `GET /reports/compare/{left_report_id}/{right_report_id}`.
 
+## Deploying from GitHub
+
+The repository contains three deployable concerns: the React/tRPC web application, the FastAPI behavior-testing service, and PostgreSQL. Deploy the web service from the project root with the build command `pnpm install && pnpm build` and start command `node dist/index.js`. Set `MODELGUARD_API_URL` on the web service to the publicly reachable FastAPI base URL, for example `https://api.example.com`.
+
+Deploy the FastAPI service using `docker/api.Dockerfile` or the command `uvicorn modelguard.api.main:app --host 0.0.0.0 --port $PORT`. Set `MODEL_GUARD_DATABASE_URL` to a managed PostgreSQL connection string in SQLAlchemy format, such as `postgresql+psycopg://USER:PASSWORD@HOST:5432/modelguard`. The API service must be able to reach that database, and the web service must be able to reach the API service. Do not expose database credentials or model artifact paths in browser variables.
+
+For model-backed test execution, provision trusted artifacts in the server-controlled `MODEL_GUARD_MODEL_DIR`. Scikit-learn adapters accept approved `.joblib` files; PyTorch adapters accept trusted TorchScript `.pt` or `.torchscript` files. The development `compose.yaml` runs all three services together and is the reference for GitHub-connected deployment environments.
+
 ## Dashboard
 
 The React dashboard in `client/` provides the interactive control room for launching suites, inspecting evidence, comparing outcomes, and sharing reports. Its default preview uses the same structured report shape as the API so the UI remains usable in the managed development environment; Docker provides the portable FastAPI and PostgreSQL service configuration for full local-stack integration.

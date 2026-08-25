@@ -24,4 +24,4 @@
 - [x] Create a private GitHub repository for ModelGuard and push the completed project.
 - [x] Confirm the GitHub repository URL and document deployment prerequisites.
 - [x] Add GitHub deployment prerequisites for the web, FastAPI, and PostgreSQL services to the project documentation.
-- [ ] Replace the displayed Git commit author identity with CSE - 148 - SHREYAN BHUNIA and shreyan.bhunia.k@gmail.com.
+- [x] Replace the displayed Git commit author identity with CSE - 148 - SHREYAN BHUNIA and shreyan.bhunia.k@gmail.com.

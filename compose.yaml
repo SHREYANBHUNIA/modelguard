@@ -1,0 +1,43 @@
+services:
+  database:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: modelguard
+      POSTGRES_USER: modelguard
+      POSTGRES_PASSWORD: modelguard_dev_password
+    ports:
+      - "5432:5432"
+    volumes:
+      - modelguard-postgres:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U modelguard -d modelguard"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  api:
+    build:
+      context: .
+      dockerfile: docker/api.Dockerfile
+    environment:
+      MODEL_GUARD_DATABASE_URL: postgresql+psycopg://modelguard:modelguard_dev_password@database:5432/modelguard
+    ports:
+      - "8000:8000"
+    depends_on:
+      database:
+        condition: service_healthy
+
+  web:
+    build:
+      context: .
+      dockerfile: docker/web.Dockerfile
+    environment:
+      MODELGUARD_API_URL: http://api:8000
+    ports:
+      - "3000:3000"
+    depends_on:
+      api:
+        condition: service_started
+
+volumes:
+  modelguard-postgres:

@@ -1,0 +1,21 @@
+# Project TODO
+
+- [x] Create the Python ModelGuard package with the requested modules: core, test-engine, perturbation, drift, metrics, adapters, api, dashboard, and examples.
+- [x] Implement a common prediction adapter interface with PyTorch and scikit-learn implementations.
+- [x] Implement behavior tests for perturbations, boundaries, distribution shifts, feature sensitivity, consistency, outliers, leakage, regressions, and model comparisons.
+- [x] Add FastAPI endpoints to trigger test runs and retrieve structured reports.
+- [x] Persist model configurations, test runs, test results, and report summaries in the database.
+- [x] Build shareable report generation with evidence, thresholds, baselines, and aggregate status.
+- [x] Build the React dashboard to run, inspect, compare, and share reports.
+- [x] Apply the playful paper-cutout visual system with warm cream, teal, coral, mustard, and lavender.
+- [x] Add Docker configuration and runnable scikit-learn and PyTorch behavior-test examples.
+- [x] Add automated tests and validate the integrated application.
+- [x] Document installation, local development, API, and example usage.
+- [x] Replace the reference API adapter with persisted scikit-learn and PyTorch adapter selection and trusted artifact loading.
+- [x] Persist adapter type, model artifact metadata, and baseline-model links with test configurations and runs.
+- [x] Include first-class baseline context in regression and comparison reports.
+- [x] Connect the dashboard run, report, compare, and share controls to the FastAPI service with API-backed state.
+- [x] Add live-data loading, empty, and error states for persisted ModelGuard configurations and reports.
+- [x] Provide distinct dashboard views for run, report, and comparison workflows.
+- [x] Expand setup documentation with web development commands and concrete FastAPI request examples.
+- [x] Add explicit configuration, report, and comparison query error states to the live dashboard views.

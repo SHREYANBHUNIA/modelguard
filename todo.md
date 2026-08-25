@@ -21,3 +21,5 @@
 - [x] Add explicit configuration, report, and comparison query error states to the live dashboard views.
 - [x] Make Run a suite, Reports, and Compare render useful dedicated preview-mode content when no FastAPI endpoint is configured.
 - [x] Verify sidebar navigation opens each dedicated workspace view without a blank or sparse intermediate state.
+- [ ] Create a private GitHub repository for ModelGuard and push the completed project.
+- [ ] Confirm the GitHub repository URL and document deployment prerequisites.
